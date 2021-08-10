@@ -11,17 +11,22 @@ const ContactForm = () => {
                 <input type="text" placeholder="Nombre completo o razón social" />
                 <input type="email" placeholder="E-mail" />
                 <input type="tel" placeholder="Celular" />
-                <div>
+                <div className="contact-form-location">
                     <select>
                         <option>Provincia</option>
                     </select>
                     <input type="text" />
                 </div>
-                <textarea></textarea>
-                <label>
-                    <input type="checkbox" id="cbox1" value="first_checkbox" />
-                    Solicitar envío con urgencia
-                </label>
+                <textarea placeholder="Hola, quiero cotizar este producto. Gracias"></textarea>
+                <div className="contact-form-bottom">
+                    <label>
+                        <input type="checkbox" id="cbox1" value="first_checkbox" />
+                        Solicitar envío con urgencia
+                    </label>
+                    <p>
+                        *Campos obligatorios
+                    </p>
+                </div>
                 <button type="submit">Enviar</button>
             </form>
         </div>

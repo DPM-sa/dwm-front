@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Router from 'next/router'
 import React, { useEffect, useState } from 'react'
 import SubcategoryItemProduct from './SubcategoryItemProduct'
 
@@ -28,6 +29,15 @@ const CategoryItemProduct = ({ categoryId }) => {
         getSubcategories()
     }, [])
     const handleClick = (catId) => {
+        if (subcategories.length === 0) {
+            Router.push({
+                pathname: '/productslist/category/[category]',
+                query: {
+                    category: categoryId
+                }
+            })
+            return
+        }
         if (categoryOpen !== catId) {
             setCategoryOpen(catId)
         }

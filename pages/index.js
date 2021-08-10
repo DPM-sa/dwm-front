@@ -2,6 +2,7 @@ import Head from 'next/head'
 import ContactForm from '../components/ContactForm'
 import Footer from '../components/Footer'
 import Layout from '../components/Layout'
+import Map from '../components/Map'
 import ProductsSection from '../components/ProductsSection'
 import Slider from '../components/Slider'
 
@@ -17,7 +18,7 @@ export default function Home() {
         <Slider />
         <ProductsSection />
         <ContactForm />
-        <Footer />
+        <Map />
       </Layout>
     </div>
   )
