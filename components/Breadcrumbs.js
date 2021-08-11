@@ -1,33 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Router from 'next/router';
-import axios from 'axios';
 
-const Breadcrumbs = ({ group, productsCategory }) => {
+const Breadcrumbs = ({ groupName, categoryName, categoryParentName, subcategoryName, subcategoryParentName, subcategoryAncestorName }) => {
 
     const handleReturn = () => {
         Router.push({
             pathname: '/'
         })
     }
-
-    const [parent, setParent] = useState('')
-
-    const getParent = async () => {
-        console.log(productsCategory.nombre)
-        await axios.get(`http://localhost:4000/group/${productsCategory.parent}`)
-            .then(resp => {
-                console.log(resp)
-                setParent(resp.data.groupDB.nombre)
-            })
-    }
-
-    useEffect(() => {
-        if (productsCategory.nombre) {
-            getParent()
-        }
-    }, [productsCategory])
 
     return (
         <div className="breadcrumbs">
@@ -36,19 +18,27 @@ const Breadcrumbs = ({ group, productsCategory }) => {
             </div>
             <div>
                 {
-                    productsCategory
+                    subcategoryName
                     &&
                     <>
-                        <p>Productos | {parent}</p>
-                        <h2>{productsCategory.nombre}</h2>
+                        <p>Productos | {subcategoryAncestorName} | {subcategoryParentName}</p>
+                        <h2>{subcategoryName}</h2>
                     </>
                 }
                 {
-                    group
+                    categoryName
+                    &&
+                    <>
+                        <p>Productos | {categoryParentName}</p>
+                        <h2>{categoryName}</h2>
+                    </>
+                }
+                {
+                    groupName
                     &&
                     <>
                         <p>Productos</p>
-                        <h2>{group}</h2>
+                        <h2>{groupName}</h2>
                     </>
                 }
             </div>

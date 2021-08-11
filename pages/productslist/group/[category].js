@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Layout from '../../../components/Layout';
 import axios from 'axios';
 import Breadcrumbs from '../../../components/Breadcrumbs';
+import ProductItem from '../../../components/ProductItem';
 
 const ProductsList = () => {
     const router = useRouter();
@@ -36,22 +37,11 @@ const ProductsList = () => {
 
     return (
         <Layout>
-            <Breadcrumbs group={group} />
+            <Breadcrumbs groupName={group} />
             <div className="products-list">
                 {
                     products.map(product => (
-                        <div className="products-list-item">
-                            <div>
-                                <img className="products-list-item-img" src={product.fotoProducto[0]} />
-                            </div>
-                            <div>
-                                <h3>{product.nombre}</h3>
-                                <p>U$ 0000000</p>
-                                <small>U$ 000000</small>
-                                <span>NUEVO</span>
-                                <button>Consultar</button>
-                            </div>
-                        </div>
+                        <ProductItem product={product} />
                     ))
                 }
             </div>

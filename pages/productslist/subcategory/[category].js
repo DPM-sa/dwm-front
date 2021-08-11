@@ -8,18 +8,22 @@ import ProductItem from '../../../components/ProductItem';
 const ProductsList = () => {
     const router = useRouter();
     const { query: { category }, isReady } = router
+    const [subcategoryName, setSubcategoryName] = useState('')
+    const [subcategoryParentName, setSubcategoryParentName] = useState('')
+    const [subcategoryAncestorName, setSubcategoryAncestorName] = useState('')
+
     const [products, setProducts] = useState([])
-    const [categoryName, setCategoryName] = useState('')
-    const [categoryParentName, setCategoryParentName] = useState('')
-    const getCategory = async () => {
+    const getSubcategory = async () => {
         if (isReady) {
-            await axios.get(`http://localhost:4000/category/${category}`)
+            await axios.get(`http://localhost:4000/subcategory/${category}`)
                 .then(async (resp) => {
-                    setCategoryName(resp.data.categoryDB.nombre)
-                    await axios.get(`http://localhost:4000/group/${resp.data.categoryDB.parent}`)
-                        .then(resp => {
-                            setCategoryParentName(resp.data.groupDB.nombre)
-                        })
+                    setSubcategoryName(resp.data.subcategoryDB.nombre)
+                    let getGroup = axios.get(`http://localhost:4000/group/${resp.data.subcategoryDB.ancestor}`)
+                    let getCategory = axios.get(`http://localhost:4000/category/${resp.data.subcategoryDB.parent}`)
+                    await axios.all([getGroup, getCategory]).then(axios.spread((...resp) => {
+                        setSubcategoryParentName(resp[1].data.categoryDB.nombre)
+                        setSubcategoryAncestorName(resp[0].data.groupDB.nombre)
+                    }))
                 })
         }
     }
@@ -33,7 +37,7 @@ const ProductsList = () => {
         }
     }
     useEffect(() => {
-        getCategory()
+        getSubcategory()
     }, [isReady])
 
     useEffect(() => {
@@ -42,7 +46,7 @@ const ProductsList = () => {
 
     return (
         <Layout>
-            <Breadcrumbs categoryName={categoryName} categoryParentName={categoryParentName} />
+            <Breadcrumbs subcategoryName={subcategoryName} subcategoryParentName={subcategoryParentName} subcategoryAncestorName={subcategoryAncestorName} />
             <div className="products-list">
                 {
                     products.map(product => (

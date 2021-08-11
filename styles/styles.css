@@ -2,7 +2,7 @@
     width: 100%;
     position: relative;
     top: 0;
-    background: #2B2848;
+    background: #767676;
     padding: 10px;
     display: flex;
     flex-direction: row;
@@ -24,7 +24,7 @@
 }
 
 .Navbar form input {
-    background: #515060;
+    background: #767676;
     border: 1px solid white;
     border-radius: 10px;
     padding: 10px;
@@ -82,7 +82,7 @@ svg.svg-inline--fa.fa-search.fa-w-16 {
     background: #F0F0F0;
 }
 
-.carousel.slide.carousel-fade, .carousel.slide.carousel-fade, .carousel-item {
+.slider-home.carousel.slide.carousel-fade, .slider-home.carousel.slide.carousel-fade, .slider-home .carousel-item {
     height: 100vh;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
@@ -314,9 +314,11 @@ iframe.map-iframe {
     flex-direction: row;
     justify-content: space-between;
 }
-.breadcrumbs p{
+
+.breadcrumbs p {
     margin: 0;
 }
+
 .breadcrumbs div:first-of-type {
     flex: 0 1 calc(10% - 1rem);
     padding: 0 10px;
