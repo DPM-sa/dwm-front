@@ -1,12 +1,11 @@
 import { Carousel } from 'react-bootstrap'
-import Image from 'next/image'
 import React from 'react'
 
 const Slider = () => {
     return (
         <Carousel className="slider-home">
             <Carousel.Item>
-                <Image
+                <img
                     className="d-block w-100 carousel-img"
                     src="https://cdn.pixabay.com/photo/2018/07/30/00/05/tractor-3571452_960_720.jpg"
                     alt="First slide"

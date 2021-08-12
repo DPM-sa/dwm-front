@@ -2,8 +2,10 @@ import React from 'react'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Router from 'next/router';
+import { useStateValue } from '../context/StateProvider';
 
-const Breadcrumbs = ({ groupName, categoryName, categoryParentName, subcategoryName, subcategoryParentName, subcategoryAncestorName }) => {
+const Breadcrumbs = () => {
+    const [{ groupName, categoryName, categoryParentName, subcategoryName, subcategoryParentName, subcategoryAncestorName }] = useStateValue()
 
     const handleReturn = () => {
         Router.push({

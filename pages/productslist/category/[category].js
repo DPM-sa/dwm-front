@@ -4,25 +4,33 @@ import Layout from '../../../components/Layout';
 import axios from 'axios';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import ProductItem from '../../../components/ProductItem';
+import { useStateValue } from '../../../context/StateProvider';
 
 const ProductsList = () => {
     const router = useRouter();
     const { query: { category }, isReady } = router
+    const [{ }, dispatch] = useStateValue()
     const [products, setProducts] = useState([])
-    const [categoryName, setCategoryName] = useState('')
-    const [categoryParentName, setCategoryParentName] = useState('')
+
     const getCategory = async () => {
         if (isReady) {
             await axios.get(`http://localhost:4000/category/${category}`)
                 .then(async (resp) => {
-                    setCategoryName(resp.data.categoryDB.nombre)
+                    dispatch({
+                        type: 'CATEGORY_SELECTED',
+                        categoryName: resp.data.categoryDB.nombre
+                    })
                     await axios.get(`http://localhost:4000/group/${resp.data.categoryDB.parent}`)
                         .then(resp => {
-                            setCategoryParentName(resp.data.groupDB.nombre)
+                            dispatch({
+                                type: 'CATEGORY_PARENT_SELECTED',
+                                categoryParentName: resp.data.groupDB.nombre
+                            })
                         })
                 })
         }
     }
+    
     const getProductsByCategory = async () => {
         if (isReady) {
             await axios.get(`http://localhost:4000/category/${category}/products`)
@@ -42,7 +50,7 @@ const ProductsList = () => {
 
     return (
         <Layout>
-            <Breadcrumbs categoryName={categoryName} categoryParentName={categoryParentName} />
+            <Breadcrumbs />
             <div className="products-list">
                 {
                     products.map(product => (

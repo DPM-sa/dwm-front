@@ -381,3 +381,40 @@ iframe.map-iframe {
     background-color: #1DB954;
     border-radius: 10px;
 }
+
+.related-products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.related-product-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    min-width: 30%;
+}
+
+.related-product-item-img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.frequent-question-button:last-of-type {
+    color: red;
+}
+
+.frequent-question-button {
+    border-top: 1px solid #787878;
+}
+
+.frequent-question-button p {
+    color: #787878;
+}
+
+.frequent-question-content {
+    display: none;
+}

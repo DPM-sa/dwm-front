@@ -4,17 +4,23 @@ import Layout from '../../../components/Layout';
 import axios from 'axios';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import ProductItem from '../../../components/ProductItem';
+import { useStateValue } from '../../../context/StateProvider';
 
 const ProductsList = () => {
     const router = useRouter();
+
+    const [{ }, dispatch] = useStateValue()
+
     const { query: { category }, isReady } = router
-    const [group, setGroup] = useState('')
     const [products, setProducts] = useState([])
     const getGroup = async () => {
         if (isReady) {
             await axios.get(`http://localhost:4000/group/${category}`)
                 .then(resp => {
-                    setGroup(resp.data.groupDB.nombre)
+                    dispatch({
+                        type: 'SELECTED_GROUP',
+                        groupName: resp.data.groupDB.nombre
+                    })
                 })
         }
     }
@@ -37,7 +43,7 @@ const ProductsList = () => {
 
     return (
         <Layout>
-            <Breadcrumbs groupName={group} />
+            <Breadcrumbs />
             <div className="products-list">
                 {
                     products.map(product => (
