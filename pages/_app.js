@@ -4,6 +4,7 @@ import reducer, { initialState } from '../context/reducer';
 import { StateProvider } from '../context/StateProvider';
 import '../styles/globals.css'
 import '../styles/styles.css'
+import 'swiper/swiper-bundle.min.css';
 
 function MyApp({ Component, pageProps }) {
   return (

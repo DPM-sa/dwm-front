@@ -22,10 +22,10 @@ const RelatedProductItem = ({ id }) => {
     }, [])
     return (
         <div className="related-product-item">
-            <div>
+            <div className="related-product-img-container">
                 <img className="related-product-item-img" src={picture} />
             </div>
-            <div>
+            <div className="related-product-item-content">
                 <p>{nombre}</p>
             </div>
         </div>

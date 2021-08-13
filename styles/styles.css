@@ -382,12 +382,162 @@ iframe.map-iframe {
     border-radius: 10px;
 }
 
-.related-products {
+.frequent-questions-top {
+    width: 90%;
+    margin: 20px auto;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    align-items: center;
+}
+
+.frequent-questions-top h1 {
+    margin-left: 20px;
+}
+
+.frequent-questions-list {
+    list-style: none;
+    padding: 0;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.frequent-question-button {
+    border-top: 1px solid #787878;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+}
+
+.frequent-question-button p {
+    margin: 0;
+    padding: 0;
+    color: #787878;
+    font-weight: bold;
+}
+
+.frequent-question-content {
+    display: none;
+    padding: 0px 10px;
+    color: #8F8F8F;
+    font-weight: 600;
+}
+
+.price-short-desc-product {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.price-actions-product {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-product p {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.price-product small {
+    color: #949494;
+    font-size: 15px;
+}
+
+.product-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-actions span {
+    border: 1px solid black;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.product-actions-icon {
+    border: 1px solid black;
+    padding: 5px 10px;
+    border-radius: 50px;
+}
+
+.short-desc-product p {
+    color: #949494;
+}
+
+.specifications {
+    position: relative;
+    z-index: 1;
+    background-color: #F0F0F0;
+    padding: 30px 0px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: -1px 4px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.specifications h2 {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.specifications p {
+    width: 90%;
+    margin: 0 auto;
+    color: #959595;
+}
+
+.data-sheet {
+    top: -30px;
+    position: relative;
+    padding: 30px 0px;
+    background-color: #2379F4;
+    color: white;
+}
+
+.data-sheet h2 {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.data-sheet-feature {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.data-sheet-feature {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.data-sheet-feature .dashed-line {
+    width: 100%;
+    border: 1px dashed white;
+}
+
+.data-sheet-feature p:last-child {
+    font-weight: bold;
+}
+
+.related-products-section h2 {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.related-products-section {
+    padding: 20px 0;
+    position: relative;
+    background-color: #F0F0F0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: -0px -4px 5px 0px rgba(170, 130, 130, 0.5);
 }
 
 .related-product-item {
@@ -395,26 +545,63 @@ iframe.map-iframe {
     display: flex;
     flex-direction: column;
     margin-right: 20px;
-    min-width: 30%;
+    min-width: 35%;
+    height: 300px;
+}
+
+.related-product-img-container {
+    height: 180px;
+    z-index: 1;
 }
 
 .related-product-item-img {
     width: 100%;
     object-fit: cover;
+    border-radius: 10px;
+    height: 100%;
 }
 
-.frequent-question-button:last-of-type {
-    color: red;
+.related-product-item-content {
+    padding-top: 50px;
+    background-color: #2379F4;
+    color: white;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    top: -40px;
+    position: relative;
+    height: 120px;
 }
 
-.frequent-question-button {
-    border-top: 1px solid #787878;
+.related-product-item-content p {
+    width: 90%;
+    margin: 0 auto;
+    font-weight: bold;
 }
 
-.frequent-question-button p {
-    color: #787878;
+.quienes-somos-banner {
+    height: 100vh;
+    position: relative;
 }
 
-.frequent-question-content {
-    display: none;
+.quienes-somos-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.quienes-somos-banner-content {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.quienes-somos-banner-content h1, .quienes-somos-banner-content p {
+    color: white;
 }

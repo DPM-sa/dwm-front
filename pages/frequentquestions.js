@@ -18,32 +18,46 @@ const FrequentQuestions = () => {
     return (
         <Layout>
             <div>
-                <div>
+                <div className="frequent-questions-top">
                     <FontAwesomeIcon icon={faChevronLeft} />
-                    <h1>preguntas frecuentes</h1>
+                    <h1>Preguntas frecuentes</h1>
                 </div>
                 <div>
-                    <ul>
+                    <ul className="frequent-questions-list">
                         <li>
                             <div onClick={(e) => handleOpen(e, 0)} className="frequent-question-button">
-                                <p>Las máquinas publicadas son argentinas?</p>
+                                <p>¿Las máquinas publicadas son argentinas?</p>
                                 <FontAwesomeIcon icon={faChevronDown} />
                             </div>
-                            <p className="frequent-question-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p className="frequent-question-content">No, las importamos desde China en general ya que su tecnologia es la más avanzada relacionada con la fabricación y reciclaje de productos de plástico, polietileno, film, caucho, papel, cartón y metal.</p>
                         </li>
                         <li>
                             <div onClick={(e) => handleOpen(e, 1)} className="frequent-question-button">
-                                <p>Las máquinas publicadas son argentinas?</p>
+                                <p>¿La entrega es inmediata?</p>
                                 <FontAwesomeIcon icon={faChevronDown} />
                             </div>
-                            <p className="frequent-question-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p className="frequent-question-content">Hay operaciones que son a pedido, así encontramos las mejores alternativas para el funcionamiento deseado y otras están disponibles para entrega inmediata.</p>
                         </li>
                         <li>
                             <div onClick={(e) => handleOpen(e, 2)} className="frequent-question-button">
-                                <p>Las máquinas publicadas son argentinas?</p>
+                                <p>¿Con qué financiación cuentan?</p>
                                 <FontAwesomeIcon icon={faChevronDown} />
                             </div>
-                            <p className="frequent-question-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p className="frequent-question-content">Todo dependera del tipo de máquina que sea solicitada y del cliente. Actualmente tenemos excelentes planes de pagos para nuestros clientes más fieles.</p>
+                        </li>
+                        <li>
+                            <div onClick={(e) => handleOpen(e, 3)} className="frequent-question-button">
+                                <p>¿Se pueden solicitar desde cualquier parte del país?¿Realizan envíos?</p>
+                                <FontAwesomeIcon icon={faChevronDown} />
+                            </div>
+                            <p className="frequent-question-content">Si, podes comprar desde cualquier provincia y nos encargamos de realizar la entrega ya que contamos con la logística necesaria para que recibas en tiempo y forma el producto.</p>
+                        </li>
+                        <li>
+                            <div onClick={(e) => handleOpen(e, 4)} className="frequent-question-button">
+                                <p>¿En caso de necesitar asesoría o mas informacion para encontrar el producto que se ajuste a mis necesidades, cómo me contacto?</p>
+                                <FontAwesomeIcon icon={faChevronDown} />
+                            </div>
+                            <p className="frequent-question-content">Brindamos el más completo asesoramiento para seleccionar la máquina ideal y acompañamos el período de prueba para garantizar el mejor funcionamiento. Podés escribirnos a info@worldmachine.com.ar o a 3401 597794 para más información.</p>
                         </li>
                     </ul>
 

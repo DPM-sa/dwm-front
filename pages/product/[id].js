@@ -9,6 +9,7 @@ import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ContactForm from '../../components/ContactForm'
 import RelatedProductItem from '../../components/RelatedProductItem'
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const Product = () => {
     const router = useRouter()
@@ -47,16 +48,7 @@ const Product = () => {
                 })
         }
     }
-    const renderFeatures = () => {
-        const featuresArr = []
-        for (let feature of features) {
-            console.log(Object.keys(feature))
-            console.log(Object.values(feature))
-        }
-    }
-    useEffect(() => {
-        console.log(renderFeatures())
-    }, [])
+
     const getGroup = async (id) => {
         await axios.get(`http://localhost:4000/group/${id}`)
             .then(resp => {
@@ -124,22 +116,25 @@ const Product = () => {
                 }
             </Carousel>
             <div className="price-short-desc-product">
-                <div className="price-product">
-                    <div>
+
+                <div className="price-actions-product">
+                    <div className="price-product">
                         <p>U$ 000000</p>
                         <small>$ 000000</small>
                     </div>
-                    <div>
+                    <div className="product-actions">
                         <span>NUEVO</span>
-                        <div>
+                        <div className="product-actions-icon">
                             <FontAwesomeIcon icon={faShareAlt} />
                         </div>
                     </div>
                 </div>
+
                 <div className="short-desc-product">
                     <h2>{nombre}</h2>
                     <p>{descripcionShort}</p>
                 </div>
+
             </div>
             <div className="specifications">
                 <h2>Especificaciones</h2>
@@ -149,25 +144,31 @@ const Product = () => {
                 <h2>Ficha Tecnica</h2>
                 {
                     features.map((feature) => (
-                        <div>
+                        <div className="data-sheet-feature">
                             <p>{Object.keys(feature)}</p>
+                            <span className="dashed-line"></span>
                             <p>{Object.values(feature)}</p>
                         </div>
 
                     ))
                 }
             </div>
+            <ContactForm />
             <div className="related-products-section">
                 <h2>Productos Relacionados</h2>
-                <div className="related-products">
+                <Swiper
+                    spaceBetween={5}
+                    slidesPerView={3}
+                >
                     {
                         related.map(item => (
-                            <RelatedProductItem id={item} />
+                            <SwiperSlide>
+                                <RelatedProductItem id={item} />
+                            </SwiperSlide>
                         ))
                     }
-                </div>
+                </Swiper>
             </div>
-            <ContactForm />
         </Layout>
     )
 }
