@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ContactForm from '../../components/ContactForm'
 import RelatedProductItem from '../../components/RelatedProductItem'
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { FacebookShareButton, LinkedinShareButton, WhatsappShareButton } from 'react-share'
+import { faFacebook, faLinkedinIn, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 const Product = () => {
     const router = useRouter()
@@ -23,6 +25,8 @@ const Product = () => {
         features: [],
         related: []
     })
+    const [isOpenShare, setIsOpenShare] = useState(false)
+    const [windowUrl, setWindowUrl] = useState('')
     const { fotoProducto, nombre, descripcionShort, descripcionLong, features, related } = product
     const getProduct = async () => {
         if (isReady) {
@@ -99,6 +103,15 @@ const Product = () => {
     useEffect(() => {
         getProduct()
     }, [isReady])
+    useEffect(() => {
+        setWindowUrl(window.location.href)
+    }, [isReady])
+    const triggerShare = () => {
+        setIsOpenShare(!isOpenShare)
+    }
+    const truncatePostContent = (postContent) => {
+        return postContent.substring(0, 50) + "..."
+    }
     return (
         <Layout>
             <Breadcrumbs />
@@ -124,9 +137,41 @@ const Product = () => {
                     </div>
                     <div className="product-actions">
                         <span>NUEVO</span>
-                        <div className="product-actions-icon">
+                        <div onClick={triggerShare} className="product-actions-icon">
                             <FontAwesomeIcon icon={faShareAlt} />
                         </div>
+                        {
+                            isOpenShare
+                            &&
+                            <div className="product-social-media-icons">
+                                <div>
+                                    <FacebookShareButton
+                                        url={windowUrl}
+                                        quote={nombre}
+                                    >
+                                        <FontAwesomeIcon icon={faFacebook} />
+                                    </FacebookShareButton>
+                                </div>
+                                <div>
+                                    <WhatsappShareButton
+                                        url={windowUrl}
+                                        title={nombre}
+                                    >
+                                        <FontAwesomeIcon icon={faWhatsapp} />
+                                    </WhatsappShareButton>
+                                </div>
+                                <div>
+                                    <LinkedinShareButton
+                                        url={windowUrl}
+                                        title={nombre}
+                                        summary={truncatePostContent(descripcionShort)}
+                                        source={"DWM"}
+                                    >
+                                        <FontAwesomeIcon icon={faLinkedinIn} />
+                                    </LinkedinShareButton>
+                                </div>
+                            </div>
+                        }
                     </div>
                 </div>
 
@@ -157,8 +202,7 @@ const Product = () => {
             <div className="related-products-section">
                 <h2>Productos Relacionados</h2>
                 <Swiper
-                    spaceBetween={5}
-                    slidesPerView={3}
+                    slidesPerView={2}
                 >
                     {
                         related.map(item => (

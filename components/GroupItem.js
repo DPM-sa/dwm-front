@@ -1,3 +1,4 @@
+import Router from 'next/router'
 import React, { useState } from 'react'
 import CategoryItem from './CategoryItem'
 
@@ -7,7 +8,16 @@ const GroupItem = ({ group }) => {
     const [groupOpen, setGroupOpen] = useState('')
 
     const handleClick = () => {
-        console.log('apretado')
+        let category = _id
+        if (group.children.length === 0) {
+            Router.push({
+                pathname: '/productslist/group/[category]',
+                query: {
+                    category
+                }
+            })
+            return
+        }
         if (groupOpen !== _id) {
             setGroupOpen(_id)
         } else if (groupOpen === _id) {

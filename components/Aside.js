@@ -1,6 +1,9 @@
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import GroupItem from './GroupItem'
+import Link from 'next/link';
 
 const Aside = ({ isOpen }) => {
 
@@ -21,10 +24,16 @@ const Aside = ({ isOpen }) => {
     }
     return (
         <aside className={isOpen ? 'Navbar_aside active' : 'Navbar_aside'}>
-            <ul className="Aside_options">
-                <li>Inicio</li>
+            <nav className="Aside_options">
                 <li>
-                    <div onClick={openAccordion}>Productos</div>
+                    <Link href="/">Inicio</Link>
+                </li>
+
+                <li>
+                    <div className="Aside_options-product" onClick={openAccordion}>
+                        Productos
+                        <FontAwesomeIcon icon={faChevronDown} color="orange" />
+                    </div>
                     <ul className={productsListOpen ? "panel-active" : "panel"}>
                         {
                             groups.map(group => (
@@ -34,11 +43,19 @@ const Aside = ({ isOpen }) => {
                         }
                     </ul>
                 </li>
-                <li>Quienes somos</li>
-                <li>Novedades</li>
-                <li>Preguntas Frecuentes</li>
-                <li>Contacto</li>
-            </ul>
+                <li>
+                    <Link href="/quienessomos">Quienes somos</Link>
+                </li>
+                <li>
+                    <Link href="/novedades">Novedades</Link>
+                </li>
+                <li>
+                    <Link href="/frequentquestions">Preguntas Frecuentes</Link>
+                </li>
+                <li>
+                    <Link href="/">Contacto</Link>
+                </li>
+            </nav>
         </aside>
     )
 }
