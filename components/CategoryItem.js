@@ -1,10 +1,12 @@
 import axios from 'axios'
 import Router from 'next/router'
 import React, { useEffect, useState } from 'react'
+import { useStateValue } from '../context/StateProvider'
 import SubcategoryItem from './SubcategoryItem'
 
 const CategoryItem = ({ categoryId }) => {
     const [category, setCategory] = useState({})
+    const [{ }, dispatch] = useStateValue()
     const [subcategories, setSubcategories] = useState([])
     const [categoryOpen, setCategoryOpen] = useState('')
     const getCategory = async () => {
@@ -35,6 +37,10 @@ const CategoryItem = ({ categoryId }) => {
                 query: {
                     category: categoryId
                 }
+            })
+            dispatch({
+                type: 'TRIGGER_SIDEBAR',
+                isOpenSidebar: false
             })
             return
         }

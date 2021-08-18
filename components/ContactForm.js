@@ -23,9 +23,6 @@ const ContactForm = () => {
                         <input type="checkbox" id="cbox1" value="first_checkbox" />
                         Solicitar envío con urgencia
                     </label>
-                    <p>
-                        *Campos obligatorios
-                    </p>
                 </div>
                 <button type="submit">Enviar</button>
             </form>

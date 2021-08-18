@@ -1,12 +1,20 @@
 import Head from 'next/head'
+import { useEffect } from 'react'
 import ContactForm from '../components/ContactForm'
-import Footer from '../components/Footer'
 import Layout from '../components/Layout'
 import Map from '../components/Map'
 import ProductsSection from '../components/ProductsSection'
 import Slider from '../components/Slider'
+import { useStateValue } from '../context/StateProvider'
 
 export default function Home() {
+  const [{ }, dispatch] = useStateValue()
+  useEffect(() => {
+    dispatch({
+      type: 'TRIGGER_SIDEBAR',
+      isOpenSidebar: false
+    })
+  }, [])
   return (
     <div>
       <Head>

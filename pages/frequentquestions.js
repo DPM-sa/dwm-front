@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layout from '../components/Layout'
 import { faChevronLeft, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useStateValue } from '../context/StateProvider';
 
 const FrequentQuestions = () => {
-
+    const [{ }, dispatch] = useStateValue()
     const handleOpen = (e, i) => {
         var coll = document.getElementsByClassName("frequent-question-button");
         var element = coll[i].nextSibling
@@ -14,7 +15,12 @@ const FrequentQuestions = () => {
             element.style.display = 'none'
         }
     }
-
+    useEffect(() => {
+        dispatch({
+            type: 'TRIGGER_SIDEBAR',
+            isOpenSidebar: false
+        })
+    }, [])
     return (
         <Layout>
             <div>

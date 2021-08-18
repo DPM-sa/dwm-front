@@ -14,7 +14,11 @@ const Layout = ({ children }) => {
             <Navbar />
             {children}
             <Footer />
-            <BottomBar />
+            {
+                !router.pathname.startsWith('/product/')
+                && <BottomBar />
+            }
+
         </>
     )
 }

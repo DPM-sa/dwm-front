@@ -32,8 +32,8 @@ const Product = () => {
         if (isReady) {
             await axios.get(`http://localhost:4000/product/${id}`)
                 .then((resp) => {
-                    console.log(resp.data.productDB)
-                    console.log(resp.data.productDB.features)
+                    console.log('producto:', resp.data.productDB)
+                    console.log('related:', resp.data.productDB.related)
                     setProduct({
                         fotoProducto: resp.data.productDB.fotoProducto,
                         nombre: resp.data.productDB.nombre,
@@ -102,7 +102,7 @@ const Product = () => {
 
     useEffect(() => {
         getProduct()
-    }, [isReady])
+    }, [isReady, id])
     useEffect(() => {
         setWindowUrl(window.location.href)
     }, [isReady])
@@ -212,6 +212,11 @@ const Product = () => {
                         ))
                     }
                 </Swiper>
+            </div>
+            <div className="product-button-container">
+                <button className="product-button">
+                    Cotizá ahora
+                </button>
             </div>
         </Layout>
     )

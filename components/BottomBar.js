@@ -5,9 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const BottomBar = () => {
     return (
         <div className="BottomBar">
-            <div className="container-icon">
-                <FontAwesomeIcon icon={faHome} color="orange" />
-            </div>
+            <FontAwesomeIcon icon={faHome} />
         </div>
     )
 }

@@ -4,7 +4,10 @@ export const initialState = {
     categoryParentName: '',
     subcategoryName: '',
     subcategoryParentName: '',
-    subcategoryAncestorName: ''
+    subcategoryAncestorName: '',
+    isOpenSidebar: false,
+    products: [],
+    posts: []
 }
 
 const reducer = (state, action) => {
@@ -50,6 +53,24 @@ const reducer = (state, action) => {
                 ...state,
                 subcategoryParentName: action.subcategoryParentName,
                 subcategoryAncestorName: action.subcategoryAncestorName,
+            }
+        }
+        case 'TRIGGER_SIDEBAR': {
+            return {
+                ...state,
+                isOpenSidebar: action.isOpenSidebar
+            }
+        }
+        case 'SET_PRODUCTS': {
+            return {
+                ...state,
+                products: action.products
+            }
+        }
+        case 'SET_POSTS': {
+            return {
+                ...state,
+                posts: action.posts
             }
         }
         default:

@@ -4,8 +4,10 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
 import PostItem from '../components/PostItem'
+import { useStateValue } from '../context/StateProvider'
 
 const Novedades = () => {
+    const [{ }, dispatch] = useStateValue()
     const [posts, setPosts] = useState([])
     const getPosts = async () => {
         await axios.get('http://localhost:4000/posts')
@@ -16,6 +18,13 @@ const Novedades = () => {
     }
     useEffect(() => {
         getPosts()
+    }, [])
+
+    useEffect(() => {
+        dispatch({
+            type: 'TRIGGER_SIDEBAR',
+            isOpenSidebar: false
+        })
     }, [])
 
     return (

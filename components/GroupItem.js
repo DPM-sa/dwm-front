@@ -1,12 +1,13 @@
 import Router from 'next/router'
 import React, { useState } from 'react'
+import { useStateValue } from '../context/StateProvider'
 import CategoryItem from './CategoryItem'
 
 
 const GroupItem = ({ group }) => {
     const { _id } = group
     const [groupOpen, setGroupOpen] = useState('')
-
+    const [{ }, dispatch] = useStateValue()
     const handleClick = () => {
         let category = _id
         if (group.children.length === 0) {
@@ -15,6 +16,10 @@ const GroupItem = ({ group }) => {
                 query: {
                     category
                 }
+            })
+            dispatch({
+                type: 'TRIGGER_SIDEBAR',
+                isOpenSidebar: false
             })
             return
         }

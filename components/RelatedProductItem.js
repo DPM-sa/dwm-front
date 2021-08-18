@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Router from 'next/router'
 import React, { useEffect, useState } from 'react'
 
 const RelatedProductItem = ({ id }) => {
@@ -19,9 +20,17 @@ const RelatedProductItem = ({ id }) => {
     }
     useEffect(() => {
         getProduct()
-    }, [])
+    }, [id])
+    const handleRedirect = () => {
+        Router.push({
+            pathname: '/product/[id]',
+            query: {
+                id: id
+            }
+        })
+    }
     return (
-        <div className="related-product-item">
+        <div onClick={handleRedirect} className="related-product-item">
             <div className="related-product-img-container">
                 <img className="related-product-item-img" src={picture} />
             </div>

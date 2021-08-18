@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ContactForm from '../components/ContactForm'
 import Layout from '../components/Layout'
+import { useStateValue } from '../context/StateProvider'
 
 const QuienesSomos = () => {
+    const [{ }, dispatch] = useStateValue()
+    useEffect(() => {
+        dispatch({
+            type: 'TRIGGER_SIDEBAR',
+            isOpenSidebar: false
+        })
+    }, [])
     return (
         <Layout>
             <div>
