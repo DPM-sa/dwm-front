@@ -10,7 +10,7 @@ const QuienesSomos = () => {
             type: 'TRIGGER_SIDEBAR',
             isOpenSidebar: false
         })
-    })
+    }, [])
     return (
         <Layout>
             <div>

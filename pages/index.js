@@ -14,7 +14,7 @@ export default function Home() {
       type: 'TRIGGER_SIDEBAR',
       isOpenSidebar: false
     })
-  })
+  }, [])
   return (
     <div>
       <Head>
