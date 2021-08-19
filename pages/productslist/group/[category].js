@@ -15,7 +15,7 @@ const ProductsList = () => {
     const [products, setProducts] = useState([])
     const getGroup = async () => {
         if (isReady) {
-            await axios.get(`http://localhost:4000/group/${category}`)
+            await axios.get(`https://dwm-backend.herokuapp.com/group/${category}`)
                 .then(resp => {
                     dispatch({
                         type: 'SELECTED_GROUP',
@@ -26,7 +26,7 @@ const ProductsList = () => {
     }
     const getProductsByCategory = async () => {
         if (isReady) {
-            await axios.get(`http://localhost:4000/category/${category}/products`)
+            await axios.get(`https://dwm-backend.herokuapp.com/category/${category}/products`)
                 .then(resp => {
                     console.log(resp.data.productsByCategory)
                     setProducts(resp.data.productsByCategory)

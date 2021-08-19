@@ -22,7 +22,7 @@ const PostScreen = () => {
     const { image, title, date, content } = post
     const getPost = async () => {
         if (isReady) {
-            await axios.get(`http://localhost:4000/post/${id}`)
+            await axios.get(`https://dwm-backend.herokuapp.com/post/${id}`)
                 .then(resp => {
                     console.log(resp.data.post)
                     setPost({

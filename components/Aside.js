@@ -11,7 +11,7 @@ const Aside = () => {
     const [productsListOpen, setProductsListOpen] = useState(false)
     const [groups, setGroups] = useState([])
     const getGroups = async () => {
-        await axios.get('http://localhost:4000/groups')
+        await axios.get('https://dwm-backend.herokuapp.com/groups')
             .then(resp => {
                 setGroups(resp.data.groupsDB)
             })

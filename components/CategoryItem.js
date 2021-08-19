@@ -10,13 +10,13 @@ const CategoryItem = ({ categoryId }) => {
     const [subcategories, setSubcategories] = useState([])
     const [categoryOpen, setCategoryOpen] = useState('')
     const getCategory = async () => {
-        await axios.get(`http://localhost:4000/category/${categoryId}`)
+        await axios.get(`https://dwm-backend.herokuapp.com/category/${categoryId}`)
             .then(resp => {
                 setCategory(resp.data.categoryDB)
             })
     }
     const getSubcategories = async () => {
-        await axios.get(`http://localhost:4000/category/${categoryId}/subcategories`)
+        await axios.get(`https://dwm-backend.herokuapp.com/category/${categoryId}/subcategories`)
             .then(resp => {
                 if (resp.data.categoriesDB.length > 0) {
                     setSubcategories(resp.data.categoriesDB)

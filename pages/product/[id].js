@@ -30,7 +30,7 @@ const Product = () => {
     const { fotoProducto, nombre, descripcionShort, descripcionLong, features, related } = product
     const getProduct = async () => {
         if (isReady) {
-            await axios.get(`http://localhost:4000/product/${id}`)
+            await axios.get(`https://dwm-backend.herokuapp.com/product/${id}`)
                 .then((resp) => {
                     console.log('producto:', resp.data.productDB)
                     console.log('related:', resp.data.productDB.related)
@@ -54,7 +54,7 @@ const Product = () => {
     }
 
     const getGroup = async (id) => {
-        await axios.get(`http://localhost:4000/group/${id}`)
+        await axios.get(`https://dwm-backend.herokuapp.com/group/${id}`)
             .then(resp => {
                 dispatch({
                     type: 'SELECTED_GROUP',
@@ -64,13 +64,13 @@ const Product = () => {
     }
 
     const getCategory = async (id) => {
-        await axios.get(`http://localhost:4000/category/${id}`)
+        await axios.get(`https://dwm-backend.herokuapp.com/category/${id}`)
             .then(async (resp) => {
                 dispatch({
                     type: 'CATEGORY_SELECTED',
                     categoryName: resp.data.categoryDB.nombre
                 })
-                await axios.get(`http://localhost:4000/group/${resp.data.categoryDB.parent}`)
+                await axios.get(`https://dwm-backend.herokuapp.com/group/${resp.data.categoryDB.parent}`)
                     .then(resp => {
                         dispatch({
                             type: 'CATEGORY_PARENT_SELECTED',
@@ -82,14 +82,14 @@ const Product = () => {
 
 
     const getSubcategory = async (id) => {
-        await axios.get(`http://localhost:4000/subcategory/${id}`)
+        await axios.get(`https://dwm-backend.herokuapp.com/subcategory/${id}`)
             .then(async (resp) => {
                 dispatch({
                     type: 'SUBCATEGORY_SELECTED',
                     subcategoryName: resp.data.subcategoryDB.nombre
                 })
-                let getGroup = axios.get(`http://localhost:4000/group/${resp.data.subcategoryDB.ancestor}`)
-                let getCategory = axios.get(`http://localhost:4000/category/${resp.data.subcategoryDB.parent}`)
+                let getGroup = axios.get(`https://dwm-backend.herokuapp.com/group/${resp.data.subcategoryDB.ancestor}`)
+                let getCategory = axios.get(`https://dwm-backend.herokuapp.com/category/${resp.data.subcategoryDB.parent}`)
                 await axios.all([getGroup, getCategory]).then(axios.spread((...resp) => {
                     dispatch({
                         type: 'SUBCATEGORY_PARENT_ANCESTOR_SELECTED',

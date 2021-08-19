@@ -9,7 +9,7 @@ const RelatedProductItem = ({ id }) => {
     })
     const { picture, nombre } = product
     const getProduct = async () => {
-        await axios.get(`http://localhost:4000/product/${id}`)
+        await axios.get(`https://dwm-backend.herokuapp.com/product/${id}`)
             .then(resp => {
                 console.log(resp.data.productDB)
                 setProduct({

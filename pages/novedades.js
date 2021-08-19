@@ -10,7 +10,7 @@ const Novedades = () => {
     const [{ }, dispatch] = useStateValue()
     const [posts, setPosts] = useState([])
     const getPosts = async () => {
-        await axios.get('http://localhost:4000/posts')
+        await axios.get('https://dwm-backend.herokuapp.com/posts')
             .then(resp => {
                 console.log(resp.data.posts)
                 setPosts(resp.data.posts)

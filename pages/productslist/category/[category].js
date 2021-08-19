@@ -14,13 +14,13 @@ const ProductsList = () => {
 
     const getCategory = async () => {
         if (isReady) {
-            await axios.get(`http://localhost:4000/category/${category}`)
+            await axios.get(`https://dwm-backend.herokuapp.com/category/${category}`)
                 .then(async (resp) => {
                     dispatch({
                         type: 'CATEGORY_SELECTED',
                         categoryName: resp.data.categoryDB.nombre
                     })
-                    await axios.get(`http://localhost:4000/group/${resp.data.categoryDB.parent}`)
+                    await axios.get(`https://dwm-backend.herokuapp.com/group/${resp.data.categoryDB.parent}`)
                         .then(resp => {
                             dispatch({
                                 type: 'CATEGORY_PARENT_SELECTED',
@@ -33,7 +33,7 @@ const ProductsList = () => {
     
     const getProductsByCategory = async () => {
         if (isReady) {
-            await axios.get(`http://localhost:4000/category/${category}/products`)
+            await axios.get(`https://dwm-backend.herokuapp.com/category/${category}/products`)
                 .then(resp => {
                     console.log(resp.data.productsByCategory)
                     setProducts(resp.data.productsByCategory)

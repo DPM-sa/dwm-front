@@ -44,7 +44,7 @@ const Navbar = () => {
     }
 
     const getProducts = async () => {
-        await axios.get('http://localhost:4000/products')
+        await axios.get('https://dwm-backend.herokuapp.com/products')
             .then(resp => {
                 dispatch({
                     type: 'SET_PRODUCTS',
@@ -58,7 +58,7 @@ const Navbar = () => {
     }, [])
 
     const getPosts = async () => {
-        await axios.get('http://localhost:4000/posts')
+        await axios.get('https://dwm-backend.herokuapp.com/posts')
             .then(resp => {
                 dispatch({
                     type: 'SET_POSTS',
