@@ -117,8 +117,8 @@ const Product = () => {
             <Breadcrumbs />
             <Carousel className="slider-product">
                 {
-                    fotoProducto.map(pic => (
-                        <Carousel.Item>
+                    fotoProducto.map((pic, idx) => (
+                        <Carousel.Item key={idx}>
                             <img
                                 className="d-block w-100 carousel-product"
                                 src={pic}
@@ -188,8 +188,8 @@ const Product = () => {
             <div className="data-sheet">
                 <h2>Ficha Tecnica</h2>
                 {
-                    features.map((feature) => (
-                        <div className="data-sheet-feature">
+                    features.map((feature, idx) => (
+                        <div key={idx} className="data-sheet-feature">
                             <p>{Object.keys(feature)}</p>
                             <span className="dashed-line"></span>
                             <p>{Object.values(feature)}</p>
@@ -206,7 +206,7 @@ const Product = () => {
                 >
                     {
                         related.map(item => (
-                            <SwiperSlide>
+                            <SwiperSlide key={item._id}>
                                 <RelatedProductItem id={item} />
                             </SwiperSlide>
                         ))

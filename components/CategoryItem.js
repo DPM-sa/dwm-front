@@ -59,8 +59,8 @@ const CategoryItem = ({ categoryId }) => {
                 &&
                 <ul className={categoryOpen === categoryId ? 'category-list-open' : 'category-list'}>
                     {
-                        subcategories.map(subcategory => (
-                            <SubcategoryItem subcategory={subcategory} />
+                        subcategories.map((subcategory, idx) => (
+                            <SubcategoryItem key={idx} subcategory={subcategory} />
                         ))
                     }
                 </ul>

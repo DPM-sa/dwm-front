@@ -25,7 +25,7 @@ const Novedades = () => {
             type: 'TRIGGER_SIDEBAR',
             isOpenSidebar: false
         })
-    }, [])
+    })
 
     return (
         <Layout>

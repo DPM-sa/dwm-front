@@ -10,12 +10,12 @@ const QuienesSomos = () => {
             type: 'TRIGGER_SIDEBAR',
             isOpenSidebar: false
         })
-    }, [])
+    })
     return (
         <Layout>
             <div>
                 <div className="quienes-somos-banner">
-                    <img className="quienes-somos-banner-img" src="https://cdn.pixabay.com/photo/2016/03/04/19/36/gears-1236578_960_720.jpg" />
+                    <img className="quienes-somos-banner-img" src="https://cdn.pixabay.com/photo/2016/03/04/19/36/gears-1236578_960_720.jpg" alt="DWM quienes somos" />
                     <div className="quienes-somos-banner-content">
                         <h1>Tecnología y compromiso</h1>
                         <p>

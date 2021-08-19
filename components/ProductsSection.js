@@ -18,8 +18,8 @@ const ProductsSection = () => {
             <h2>Productos</h2>
             <ul className="products-options">
                 {
-                    groups.map(group => (
-                        <GroupItemProduct group={group} />
+                    groups.map((group, idx) => (
+                        <GroupItemProduct key={idx} group={group} />
                     ))
                 }
             </ul>

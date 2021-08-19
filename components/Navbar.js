@@ -108,8 +108,8 @@ const Navbar = () => {
                                 resultsProducts.length === 0
                                 && <li>No existen productos con esa búsqueda</li>
                             }
-                            {resultsProducts.map(result => (
-                                <li onClick={() => handleClickProduct(result)}>{result.nombre}</li>
+                            {resultsProducts.map((result, idx) => (
+                                <li key={idx} onClick={() => handleClickProduct(result)}>{result.nombre}</li>
                             ))}
                             <li className="product-search-title">
                                 <small>
@@ -120,8 +120,8 @@ const Navbar = () => {
                                 resultsPosts.length === 0
                                 && <li>No existen novedades con esa búsqueda</li>
                             }
-                            {resultsPosts.map(result => (
-                                <li onClick={() => handleClickPost(result)}>{result.title}</li>
+                            {resultsPosts.map((result, idx) => (
+                                <li key={idx} onClick={() => handleClickPost(result)}>{result.title}</li>
                             ))}
                         </ul>
                     }

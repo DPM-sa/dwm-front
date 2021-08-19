@@ -54,7 +54,7 @@ const PostScreen = () => {
                 <h1>Novedades</h1>
             </div>
             <div className="post-screen-content">
-                <img src={image} />
+                <img src={image} alt={title} />
                 <h2>{title}</h2>
                 <div className="post-screen-social-media-icons">
                     <div>

@@ -20,7 +20,7 @@ const FrequentQuestions = () => {
             type: 'TRIGGER_SIDEBAR',
             isOpenSidebar: false
         })
-    }, [])
+    })
     return (
         <Layout>
             <div>
