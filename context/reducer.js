@@ -6,6 +6,8 @@ export const initialState = {
     subcategoryParentName: '',
     subcategoryAncestorName: '',
     isOpenSidebar: false,
+    isOpenLanguageToolbar: false,
+    isOpenSearchToolbar: false,
     products: [],
     posts: []
 }
@@ -58,7 +60,25 @@ const reducer = (state, action) => {
         case 'TRIGGER_SIDEBAR': {
             return {
                 ...state,
-                isOpenSidebar: action.isOpenSidebar
+                isOpenSidebar: action.isOpenSidebar,
+                isOpenLanguageToolbar: false,
+                isOpenSearchToolbar: false
+            }
+        }
+        case 'TRIGGER_SEARCHBAR': {
+            return {
+                ...state,
+                isOpenSidebar: false,
+                isOpenLanguageToolbar: false,
+                isOpenSearchToolbar: action.isOpenSearchToolbar
+            }
+        }
+        case 'TRIGGER_LANGUAGEBAR': {
+            return {
+                ...state,
+                isOpenSidebar: false,
+                isOpenLanguageToolbar: action.isOpenLanguageToolbar,
+                isOpenSearchToolbar: false
             }
         }
         case 'SET_PRODUCTS': {

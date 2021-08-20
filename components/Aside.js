@@ -30,22 +30,13 @@ const Aside = () => {
         })
     }
     return (
-        <>
-            {isOpenSidebar
-                &&
-                <div onClick={closeSidebar} className="close-sidebar-icon">
-                    <span>
-                        <FontAwesomeIcon icon={faTimes} color="white" />
-                    </span>
-                </div>
-            }
             <aside className={isOpenSidebar ? 'Navbar_aside active' : 'Navbar_aside'}>
                 <ul className="Aside_options">
-                    <li>
+                    <li className="Aside_options-item">
                         <Link href="/">Inicio</Link>
                     </li>
 
-                    <li>
+                    <li className="Aside_options-item">
                         <div className="Aside_options-product" onClick={openAccordion}>
                             Productos
                             <FontAwesomeIcon icon={faChevronDown} color="orange" />
@@ -59,21 +50,20 @@ const Aside = () => {
                             }
                         </ul>
                     </li>
-                    <li>
+                    <li className="Aside_options-item">
                         <Link href="/quienessomos">Quienes somos</Link>
                     </li>
-                    <li>
+                    <li className="Aside_options-item">
                         <Link href="/novedades">Novedades</Link>
                     </li>
-                    <li>
+                    <li className="Aside_options-item">
                         <Link href="/frequentquestions">Preguntas Frecuentes</Link>
                     </li>
-                    <li>
+                    <li className="Aside_options-item">
                         <Link href="/">Contacto</Link>
                     </li>
                 </ul>
             </aside>
-        </>
     )
 }
 

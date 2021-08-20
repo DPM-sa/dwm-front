@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
 import ContactForm from '../components/ContactForm'
+import FeaturedProducts from '../components/FeaturedProducts'
 import Layout from '../components/Layout'
 import Map from '../components/Map'
 import ProductsSection from '../components/ProductsSection'
@@ -25,6 +26,7 @@ export default function Home() {
       <Layout>
         <Slider />
         <ProductsSection />
+        <FeaturedProducts />
         <ContactForm />
         <Map />
       </Layout>

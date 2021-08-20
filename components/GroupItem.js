@@ -1,3 +1,5 @@
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Router from 'next/router'
 import React, { useState } from 'react'
 import { useStateValue } from '../context/StateProvider'
@@ -30,8 +32,13 @@ const GroupItem = ({ group }) => {
         }
     }
     return (
-        <li>
-            <div onClick={handleClick}>{group.nombre}</div>
+        <li className="group-list-item">
+            <div className="group-item-name" onClick={handleClick}>
+                {group.nombre}
+                <div>
+                    <FontAwesomeIcon icon={faChevronDown} color="orange" />
+                </div>
+            </div>
             <ul className={groupOpen === _id ? 'group-list-open' : 'group-list'}>
                 {group.children.map(categoryId => (
                     <CategoryItem key={categoryId} categoryId={categoryId} />

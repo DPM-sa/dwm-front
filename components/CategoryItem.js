@@ -52,7 +52,7 @@ const CategoryItem = ({ categoryId }) => {
         }
     }
     return (
-        <li>
+        <li className="category-list-item">
             <div onClick={() => handleClick(category._id)}>{category.nombre}</div>
             {
                 subcategories.length > 0

@@ -1,30 +1,45 @@
 import React from 'react'
-import { faInstagram, faLinkedinIn, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faLinkedinIn, faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 const Footer = () => {
     return (
         <footer>
             <div className="footer-content">
-                <div className="footer-logo">
-                    DWM
+                <div className="footer-logo-container">
+                    <img src="/assets/Logo2x.png" />
                 </div>
-                <p>
+                <h3>
                     Somos importadores estratégicos de equipos y herramientas especializadas para la operación logistica
-                </p>
+                </h3>
                 <div>
-                    <p>
+                    <h3>
                         Mitre 726
-                    </p>
+                    </h3>
                     <p>
                         (2453) Carlos Pellegrini
                     </p>
                     <p>
                         Santa Fe - Argentina
                     </p>
+                    <p>
+                        <FontAwesomeIcon icon={faWhatsapp} />
+                        +54 9 3401 59-7794
+                    </p>
                 </div>
-                <h3>Seguinos</h3>
+                <div>
+                    <h3>
+                        Horarios
+                    </h3>
+                    <p>
+                        Lunes a viernes de 8.00 a 18.00 hs
+                    </p>
+                    <p>
+                        Sábado de 8.00 a 12.30 hs
+                    </p>
+                </div>
                 <div className="footer-social-media">
+                    <h3>Seguinos</h3>
                     <div className="social-media-icon">
                         <FontAwesomeIcon icon={faInstagram} />
                     </div>
@@ -36,10 +51,12 @@ const Footer = () => {
                     </div>
                 </div>
                 <h3>Newsletter</h3>
-                <p>Recibi todas nuestras novedades nuevos ingresos en tu mail. Suscribite</p>
+                <p>Recibi todas nuestras novedades nuevos ingresos en tu mail</p>
                 <form>
                     <input type="text" placeholder="Ingresar e-mail" />
-                    <FontAwesomeIcon icon={faEnvelope} color="52515E" />
+                    <button type="submit">
+                        Suscribite
+                    </button>
                 </form>
             </div>
         </footer>
