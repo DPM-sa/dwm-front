@@ -42,16 +42,18 @@ const ProductsList = () => {
     }, [isReady])
 
     return (
-        <Layout>
-            <Breadcrumbs />
-            <div className="products-list">
-                {
-                    products.map(product => (
-                        <ProductItem key={product._id} product={product} />
-                    ))
-                }
-            </div>
-        </Layout>
+        <div className="products-list-page">
+            <Layout>
+                <Breadcrumbs />
+                <div className="products-list">
+                    {
+                        products.map(product => (
+                            <ProductItem key={product._id} product={product} />
+                        ))
+                    }
+                </div>
+            </Layout>
+        </div>
     )
 }
 

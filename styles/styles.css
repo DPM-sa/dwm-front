@@ -482,12 +482,19 @@ iframe.map-iframe {
     top: 40px;
 }
 
+.products-list-page {
+    background-color: #f0f0f0;
+}
+
 .breadcrumbs {
     width: 90%;
-    margin: 20px auto;
+    margin: 0px auto;
+    padding-top: 70px;
+    padding-bottom: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background: transparent;
 }
 
 .breadcrumbs p {
@@ -496,7 +503,11 @@ iframe.map-iframe {
 
 .breadcrumbs div:first-of-type {
     flex: 0 1 calc(10% - 1rem);
-    padding: 0 10px;
+    padding: 10px;
+    padding-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .breadcrumbs div:last-of-type {
@@ -514,7 +525,11 @@ iframe.map-iframe {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: -1px 3px 13px -1px rgb(0 0 0 / 49%);
 }
 
 .products-list-item div:first-of-type {
@@ -545,7 +560,8 @@ iframe.map-iframe {
 }
 
 .products-list-item span {
-    border: 1.5px solid black;
+    background: #95989A;
+    color: white;
     font-weight: bold;
     padding: 3px 8px;
     border-radius: 6px;
@@ -559,11 +575,13 @@ iframe.map-iframe {
 }
 
 .products-list-item button {
-    border: none;
-    color: white;
+    border: 1px solid #1DB954;
+    color: #1DB954;
     padding: 5px 10px;
-    background-color: #1DB954;
-    border-radius: 6px;
+    background-color: white;
+    font-weight: 700;
+    border-radius: 20px;
+    width: 100%;
 }
 
 .frequent-questions-top {
@@ -617,7 +635,8 @@ iframe.map-iframe {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    margin-top: 20px;
 }
 
 .price-product p {
@@ -639,14 +658,14 @@ iframe.map-iframe {
 }
 
 .product-actions span {
-    border: 1px solid black;
+    background: #95989A;
+    color: white;
     padding: 5px 10px;
     border-radius: 10px;
     margin-right: 10px;
 }
 
 .product-actions-icon {
-    border: 1px solid black;
     padding: 5px 10px;
     border-radius: 50px;
 }
@@ -654,8 +673,8 @@ iframe.map-iframe {
 .product-social-media-icons {
     position: absolute;
     background-color: #F0F0F0;
-    top: 5px;
-    right: 45px;
+    top: 45px;
+    right: 5px;
     width: 200px;
     height: 60px;
     border-top-left-radius: 10px;
@@ -671,13 +690,18 @@ iframe.map-iframe {
     content: '';
     position: absolute;
     border-style: solid;
-    border-width: 14px 0 14px 20px;
-    border-color: transparent #F0F0F0;
+    border-width: 0 8px 12px;
+    border-color: #191464 transparent;
     display: block;
     width: 0;
     z-index: 1;
-    right: -18px;
-    top: 0px;
+    top: -12px;
+    right: 5px;
+}
+
+.product-social-media-icons.post {
+    top: 40px;
+    right: -4px;
 }
 
 .product-social-media-icons div {
@@ -766,9 +790,6 @@ iframe.map-iframe {
     display: flex;
     flex-direction: column;
     margin-right: 20px;
-    min-width: 35%;
-    height: 300px;
-    box-shadow: -5px 6px 9px -2px rgba(0, 0, 0, 0.59);
     margin-bottom: 20px;
     border-radius: 10px;
 }
@@ -786,16 +807,17 @@ iframe.map-iframe {
 }
 
 .related-product-item-content {
-    padding-top: 50px;
+    padding-top: 20px;
     background-color: #2379F4;
     color: white;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     display: flex;
     flex-direction: column;
-    top: -40px;
+    top: -10px;
     position: relative;
     height: 120px;
+    box-shadow: -5px 6px 9px -2px rgba(0, 0, 0, 0.59);
 }
 
 .related-product-item-content p {
@@ -947,28 +969,15 @@ iframe.map-iframe {
     font-weight: bold;
 }
 
-.post-screen-social-media-icons {
-    width: 50%;
+.post-screen-actions {
+    position: relative;
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
-    margin: 20px 0px;
+    align-items: center;
 }
 
-.post-screen-social-media-icons div {
-    background-color: #191464;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 50px;
-}
-
-.post-screen-social-media-icons div:first-of-type {
-    color: #191464;
-    background: none;
-}
-
-.post-screen-content small {
+.post-screen-actions small {
     color: #707070;
     font-weight: 700;
 }
