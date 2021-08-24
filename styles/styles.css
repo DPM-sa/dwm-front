@@ -625,10 +625,11 @@ iframe.map-iframe {
 
 .frequent-questions-top {
     width: 90%;
-    margin: 20px auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding-top: 70px;
 }
 
 .frequent-questions-top h1 {
@@ -983,10 +984,11 @@ iframe.map-iframe {
 
 .novedades-top {
     width: 90%;
-    margin: 20px auto 0px;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding-top: 70px;
 }
 
 .novedades-top h1 {
@@ -1059,4 +1061,8 @@ iframe.map-iframe {
 
 .pagination-component button.selected {
     color: orange;
+}
+
+.contact-page, .products-page .products-section {
+    padding-top: 70px;
 }

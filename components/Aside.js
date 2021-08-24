@@ -60,7 +60,7 @@ const Aside = () => {
                         <Link href="/frequentquestions">Preguntas Frecuentes</Link>
                     </li>
                     <li className="Aside_options-item">
-                        <Link href="/">Contacto</Link>
+                        <Link href="/contacto">Contacto</Link>
                     </li>
                 </ul>
             </aside>

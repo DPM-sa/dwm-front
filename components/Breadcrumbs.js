@@ -12,7 +12,11 @@ const Breadcrumbs = () => {
             pathname: '/'
         })
     }
-
+    const handleClick = () => {
+        Router.push({
+            pathname: '/products'
+        })
+    }
     return (
         <div className="breadcrumbs">
             <div onClick={handleReturn}>
@@ -23,7 +27,7 @@ const Breadcrumbs = () => {
                     subcategoryName
                     &&
                     <>
-                        <p>Productos | {subcategoryAncestorName} | {subcategoryParentName}</p>
+                        <p> <span onClick={handleClick}>Productos</span> | {subcategoryAncestorName} | {subcategoryParentName}</p>
                         <h2>{subcategoryName}</h2>
                     </>
                 }
@@ -31,7 +35,7 @@ const Breadcrumbs = () => {
                     categoryName
                     &&
                     <>
-                        <p>Productos | {categoryParentName}</p>
+                        <p><span onClick={handleClick}>Productos</span> | {categoryParentName}</p>
                         <h2>{categoryName}</h2>
                     </>
                 }
@@ -39,7 +43,7 @@ const Breadcrumbs = () => {
                     groupName
                     &&
                     <>
-                        <p>Productos</p>
+                        <p><span onClick={handleClick}>Productos</span></p>
                         <h2>{groupName}</h2>
                     </>
                 }
