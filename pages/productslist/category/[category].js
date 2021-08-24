@@ -5,12 +5,23 @@ import axios from 'axios';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import ProductItem from '../../../components/ProductItem';
 import { useStateValue } from '../../../context/StateProvider';
+import Pagination from '../../../components/Pagination';
 
 const ProductsList = () => {
     const router = useRouter();
     const { query: { category }, isReady } = router
     const [{ }, dispatch] = useStateValue()
     const [products, setProducts] = useState([])
+
+    const [currentPage, setCurrentPage] = useState(1)
+    const [itemsPerPage] = useState(2)
+    const indexOfLastItem = currentPage * itemsPerPage
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage
+    const currentItems = products.slice(indexOfFirstItem, indexOfLastItem)
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
+
 
     const getCategory = async () => {
         if (isReady) {
@@ -54,12 +65,13 @@ const ProductsList = () => {
                 <Breadcrumbs />
                 <div className="products-list">
                     {
-                        products.map(product => (
+                        currentItems.map(product => (
                             <ProductItem key={product._id} product={product} />
                         ))
                     }
                 </div>
             </Layout>
+            <Pagination itemsPerPage={itemsPerPage} paginate={paginate} totalItems={products.length} />
         </div>
     )
 }

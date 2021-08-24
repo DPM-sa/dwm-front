@@ -3,12 +3,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
+import Pagination from '../components/Pagination'
 import PostItem from '../components/PostItem'
 import { useStateValue } from '../context/StateProvider'
 
 const Novedades = () => {
     const [{ }, dispatch] = useStateValue()
     const [posts, setPosts] = useState([])
+
+    const [currentPage, setCurrentPage] = useState(1)
+    const [itemsPerPage] = useState(2)
+    const indexOfLastItem = currentPage * itemsPerPage
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage
+    const currentItems = posts.slice(indexOfFirstItem, indexOfLastItem)
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
+
     const getPosts = async () => {
         await axios.get('https://dwm-backend.herokuapp.com/posts')
             .then(resp => {
@@ -35,11 +46,12 @@ const Novedades = () => {
             </div>
             <div className="novedades-list">
                 {
-                    posts.map(post => (
+                    currentItems.map(post => (
                         <PostItem key={post._id} post={post} />
                     ))
                 }
             </div>
+            <Pagination itemsPerPage={itemsPerPage} paginate={paginate} totalItems={posts.length} />
         </Layout>
     )
 }

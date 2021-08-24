@@ -5,6 +5,7 @@ import axios from 'axios';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import ProductItem from '../../../components/ProductItem';
 import { useStateValue } from '../../../context/StateProvider';
+import Pagination from '../../../components/Pagination'
 
 const ProductsList = () => {
     const router = useRouter();
@@ -12,6 +13,15 @@ const ProductsList = () => {
     const [{ }, dispatch] = useStateValue()
     const [products, setProducts] = useState([])
 
+    const [currentPage, setCurrentPage] = useState(1)
+    const [itemsPerPage] = useState(2)
+    const indexOfLastItem = currentPage * itemsPerPage
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage
+    const currentItems = products.slice(indexOfFirstItem, indexOfLastItem)
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
+    
     const getSubcategory = async () => {
         if (isReady) {
             await axios.get(`https://dwm-backend.herokuapp.com/subcategory/${category}`)
@@ -56,11 +66,12 @@ const ProductsList = () => {
                 <Breadcrumbs />
                 <div className="products-list">
                     {
-                        products.map(product => (
+                        currentItems.map(product => (
                             <ProductItem key={product._id} product={product} />
                         ))
                     }
                 </div>
+                <Pagination itemsPerPage={itemsPerPage} paginate={paginate} totalItems={products.length} />
             </Layout>
         </div>
     )
