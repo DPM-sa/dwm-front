@@ -28,13 +28,13 @@ const Slider = () => {
                             <h3>Importamos máquinas industriales</h3>
                             <p>
                                 Somos importadores estratégicos de equipos y herramientas especializadas para la operación logística.
-                        </p>
+                            </p>
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
                 {
                     sliders.map(slider => (
-                        <Carousel.Item>
+                        <Carousel.Item key={slider._id}>
                             <img
                                 className="d-block w-100 carousel-img"
                                 src={slider.image}
@@ -43,9 +43,9 @@ const Slider = () => {
                             <Carousel.Caption>
                                 <div className="carousel-content">
                                     <h3>{slider.title}</h3>
-                                    <a href={slider.url} target="_blank">
+                                    <a href={slider.url} target="_blank" rel="noreferrer">
                                         Ver más
-                                </a>
+                                    </a>
                                 </div>
                             </Carousel.Caption>
                         </Carousel.Item>
