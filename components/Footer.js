@@ -1,7 +1,7 @@
 import React from 'react'
 import { faInstagram, faLinkedinIn, faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+
 const Footer = () => {
     return (
         <footer>
@@ -9,10 +9,10 @@ const Footer = () => {
                 <div className="footer-logo-container">
                     <img src="/assets/Logo2x.png" />
                 </div>
-                <h3>
+                <h3 className="footer-content-desc">
                     Somos importadores estratégicos de equipos y herramientas especializadas para la operación logistica
                 </h3>
-                <div>
+                <div className="footer-content-location">
                     <h3>
                         Mitre 726
                     </h3>
@@ -27,7 +27,7 @@ const Footer = () => {
                         +54 9 3401 59-7794
                     </p>
                 </div>
-                <div>
+                <div className="footer-content-schedule">
                     <h3>
                         Horarios
                     </h3>
@@ -50,8 +50,10 @@ const Footer = () => {
                         <FontAwesomeIcon icon={faLinkedinIn} />
                     </div>
                 </div>
-                <h3>Newsletter</h3>
-                <p>Recibi todas nuestras novedades nuevos ingresos en tu mail</p>
+                <div className="footer-content-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Recibi todas nuestras novedades nuevos ingresos en tu mail</p>
+                </div>
                 <form>
                     <input type="text" placeholder="Ingresar e-mail" />
                     <button type="submit">

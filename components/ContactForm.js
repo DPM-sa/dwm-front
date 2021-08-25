@@ -3,7 +3,7 @@ import React from 'react'
 const ContactForm = () => {
     return (
         <div className="contact-form">
-            <h2>Contactar al vendedor</h2>
+            <h2>Cotizá ahora</h2>
             <form>
                 <select>
                     <option>Elegir producto</option>

@@ -16,6 +16,7 @@ const ProductsSection = () => {
     return (
         <div className="products-section">
             <h2>Productos</h2>
+            <p>La mejor maquinaria del mercado</p>
             <ul className="products-options">
                 {
                     groups.map((group, idx) => (

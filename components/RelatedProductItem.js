@@ -36,6 +36,7 @@ const RelatedProductItem = ({ id }) => {
             </div>
             <div className="related-product-item-content">
                 <p>{nombre}</p>
+                <span>NUEVO</span>
             </div>
         </div>
     )
