@@ -13,16 +13,8 @@ import LanguageToolbar from "./LanguageToolbar";
 const Navbar = () => {
     const [{ isOpenSidebar, isOpenSearchToolbar, isOpenLanguageToolbar }, dispatch] = useStateValue()
 
-
-    const handleTriggerSidebar = () => {
-        dispatch({
-            type: 'TRIGGER_SIDEBAR',
-            isOpenSidebar: !isOpenSidebar
-        })
-    }
-
     const getProducts = async () => {
-        await axios.get('https://dwm-backend.herokuapp.com/products')
+        await axios.get('https://api.dworldmachine.com.ar/products')
             .then(resp => {
                 dispatch({
                     type: 'SET_PRODUCTS',
@@ -36,7 +28,7 @@ const Navbar = () => {
     }, [])
 
     const getPosts = async () => {
-        await axios.get('https://dwm-backend.herokuapp.com/posts')
+        await axios.get('https://api.dworldmachine.com.ar/posts')
             .then(resp => {
                 dispatch({
                     type: 'SET_POSTS',
@@ -60,6 +52,13 @@ const Navbar = () => {
             isOpenLanguageToolbar: !isOpenLanguageToolbar
         })
     }
+    const handleTriggerSidebar = () => {
+        dispatch({
+            type: 'TRIGGER_SIDEBAR',
+            isOpenSidebar: !isOpenSidebar
+        })
+    }
+    
     return (
         <>
             <div className="Navbar">

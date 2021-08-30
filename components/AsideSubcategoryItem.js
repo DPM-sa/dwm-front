@@ -2,7 +2,7 @@ import Router from 'next/router'
 import React from 'react'
 import { useStateValue } from '../context/StateProvider'
 
-const SubcategoryItem = ({ subcategory }) => {
+const AsideSubcategoryItem = ({ subcategory }) => {
     const [{ }, dispatch] = useStateValue()
     const handleClick = () => {
         Router.push({
@@ -23,4 +23,4 @@ const SubcategoryItem = ({ subcategory }) => {
     )
 }
 
-export default SubcategoryItem
+export default AsideSubcategoryItem

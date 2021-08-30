@@ -5,7 +5,7 @@ import axios from 'axios'
 const Slider = () => {
     const [sliders, setSliders] = useState([])
     const getSliders = async () => {
-        await axios.get('https://dwm-backend.herokuapp.com/sliders')
+        await axios.get('https://api.dworldmachine.com.ar/sliders')
             .then(resp => {
                 console.log(resp.data.slidersDB)
                 setSliders(resp.data.slidersDB)

@@ -6,9 +6,11 @@ const PostItem = ({ post }) => {
     const truncatePostContent = (postContent) => {
         return postContent.substring(0, 120) + "..."
     }
+
     const formatDate = (date) => {
         return moment(date).format('D/MM/YYYY')
     }
+
     const handleRedirect = () => {
         Router.push({
             pathname: '/post/[id]',
@@ -17,6 +19,7 @@ const PostItem = ({ post }) => {
             }
         })
     }
+    
     return (
         <div onClick={handleRedirect} className="novedades-list-item">
             <img src={post.image} />

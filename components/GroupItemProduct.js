@@ -25,6 +25,7 @@ const GroupItemProduct = ({ group }) => {
             setGroupOpen('')
         }
     }
+    
     return (
         <li className="products-group-item">
             <div className="products-group-item-title" onClick={handleClick}>

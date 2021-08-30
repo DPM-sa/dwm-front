@@ -3,13 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Router from 'next/router'
 import React, { useState } from 'react'
 import { useStateValue } from '../context/StateProvider'
-import CategoryItem from './CategoryItem'
+import AsideCategoryItem from './AsideCategoryItem'
 
 
-const GroupItem = ({ group }) => {
+const AsideGroupItem = ({ group }) => {
     const { _id } = group
     const [groupOpen, setGroupOpen] = useState('')
+
     const [{ }, dispatch] = useStateValue()
+
     const handleClick = () => {
         let category = _id
         if (group.children.length === 0) {
@@ -31,6 +33,7 @@ const GroupItem = ({ group }) => {
             setGroupOpen('')
         }
     }
+
     return (
         <li className="group-list-item">
             <div className="group-item-name" onClick={handleClick}>
@@ -41,11 +44,11 @@ const GroupItem = ({ group }) => {
             </div>
             <ul className={groupOpen === _id ? 'group-list-open' : 'group-list'}>
                 {group.children.map(categoryId => (
-                    <CategoryItem key={categoryId} categoryId={categoryId} />
+                    <AsideCategoryItem key={categoryId} categoryId={categoryId} />
                 ))}
             </ul>
         </li>
     )
 }
 
-export default GroupItem
+export default AsideGroupItem

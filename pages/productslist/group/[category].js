@@ -26,7 +26,7 @@ const ProductsList = () => {
 
     const getGroup = async () => {
         if (isReady) {
-            await axios.get(`https://dwm-backend.herokuapp.com/group/${category}`)
+            await axios.get(`https://api.dworldmachine.com.ar/group/${category}`)
                 .then(resp => {
                     dispatch({
                         type: 'SELECTED_GROUP',
@@ -37,7 +37,7 @@ const ProductsList = () => {
     }
     const getProductsByCategory = async () => {
         if (isReady) {
-            await axios.get(`https://dwm-backend.herokuapp.com/category/${category}/products`)
+            await axios.get(`https://api.dworldmachine.com.ar/category/${category}/products`)
                 .then(resp => {
                     console.log(resp.data.productsByCategory)
                     setProducts(resp.data.productsByCategory)

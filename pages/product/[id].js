@@ -25,12 +25,15 @@ const Product = () => {
         features: [],
         related: []
     })
-    const [isOpenShare, setIsOpenShare] = useState(false)
-    const [windowUrl, setWindowUrl] = useState('')
     const { fotoProducto, nombre, descripcionShort, descripcionLong, features, related } = product
+
+    const [isOpenShare, setIsOpenShare] = useState(false)
+    
+    const [windowUrl, setWindowUrl] = useState('')
+    
     const getProduct = async () => {
         if (isReady) {
-            await axios.get(`https://dwm-backend.herokuapp.com/product/${id}`)
+            await axios.get(`https://api.dworldmachine.com.ar/product/${id}`)
                 .then((resp) => {
                     console.log('producto:', resp.data.productDB)
                     console.log('related:', resp.data.productDB.related)
@@ -54,7 +57,7 @@ const Product = () => {
     }
 
     const getGroup = async (id) => {
-        await axios.get(`https://dwm-backend.herokuapp.com/group/${id}`)
+        await axios.get(`https://api.dworldmachine.com.ar/group/${id}`)
             .then(resp => {
                 dispatch({
                     type: 'SELECTED_GROUP',
@@ -64,13 +67,13 @@ const Product = () => {
     }
 
     const getCategory = async (id) => {
-        await axios.get(`https://dwm-backend.herokuapp.com/category/${id}`)
+        await axios.get(`https://api.dworldmachine.com.ar/category/${id}`)
             .then(async (resp) => {
                 dispatch({
                     type: 'CATEGORY_SELECTED',
                     categoryName: resp.data.categoryDB.nombre
                 })
-                await axios.get(`https://dwm-backend.herokuapp.com/group/${resp.data.categoryDB.parent}`)
+                await axios.get(`https://api.dworldmachine.com.ar/group/${resp.data.categoryDB.parent}`)
                     .then(resp => {
                         dispatch({
                             type: 'CATEGORY_PARENT_SELECTED',
@@ -82,14 +85,14 @@ const Product = () => {
 
 
     const getSubcategory = async (id) => {
-        await axios.get(`https://dwm-backend.herokuapp.com/subcategory/${id}`)
+        await axios.get(`https://api.dworldmachine.com.ar/subcategory/${id}`)
             .then(async (resp) => {
                 dispatch({
                     type: 'SUBCATEGORY_SELECTED',
                     subcategoryName: resp.data.subcategoryDB.nombre
                 })
-                let getGroup = axios.get(`https://dwm-backend.herokuapp.com/group/${resp.data.subcategoryDB.ancestor}`)
-                let getCategory = axios.get(`https://dwm-backend.herokuapp.com/category/${resp.data.subcategoryDB.parent}`)
+                let getGroup = axios.get(`https://api.dworldmachine.com.ar/group/${resp.data.subcategoryDB.ancestor}`)
+                let getCategory = axios.get(`https://api.dworldmachine.com.ar/category/${resp.data.subcategoryDB.parent}`)
                 await axios.all([getGroup, getCategory]).then(axios.spread((...resp) => {
                     dispatch({
                         type: 'SUBCATEGORY_PARENT_ANCESTOR_SELECTED',

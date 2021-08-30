@@ -16,16 +16,19 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
         paginate(n)
         setPage(n)
     }
+    
     const handlePaginationReturn = () => {
         if (page === 1) return
         setPage(page - 1)
         paginate(page - 1)
     }
+
     const handlePaginationAdvance = () => {
         if (page >= totalPages) return
         setPage(page + 1)
         paginate(page + 1)
     }
+
     return (
         <div className="pagination-component">
             <button onClick={handlePaginationReturn}>

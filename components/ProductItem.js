@@ -2,6 +2,7 @@ import Router from 'next/router'
 import React from 'react'
 
 const ProductItem = ({ product }) => {
+
     const handleClick = () => {
         Router.push({
             pathname: '/product/[id]',
@@ -10,6 +11,7 @@ const ProductItem = ({ product }) => {
             }
         })
     }
+    
     return (
         <div className="products-list-item">
             <div>

@@ -21,7 +21,7 @@ const Novedades = () => {
     }
 
     const getPosts = async () => {
-        await axios.get('https://dwm-backend.herokuapp.com/posts')
+        await axios.get('https://api.dworldmachine.com.ar/posts')
             .then(resp => {
                 console.log(resp.data.posts)
                 setPosts(resp.data.posts)

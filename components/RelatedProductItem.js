@@ -8,8 +8,9 @@ const RelatedProductItem = ({ id }) => {
         nombre: ''
     })
     const { picture, nombre } = product
+
     const getProduct = async () => {
-        await axios.get(`https://dwm-backend.herokuapp.com/product/${id}`)
+        await axios.get(`https://api.dworldmachine.com.ar/product/${id}`)
             .then(resp => {
                 console.log(resp.data.productDB)
                 setProduct({
@@ -18,9 +19,11 @@ const RelatedProductItem = ({ id }) => {
                 })
             })
     }
+
     useEffect(() => {
         getProduct()
     }, [id])
+
     const handleRedirect = () => {
         Router.push({
             pathname: '/product/[id]',
@@ -29,6 +32,7 @@ const RelatedProductItem = ({ id }) => {
             }
         })
     }
+    
     return (
         <div onClick={handleRedirect} className="related-product-item">
             <div className="related-product-img-container">

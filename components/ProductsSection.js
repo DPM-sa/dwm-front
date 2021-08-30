@@ -4,15 +4,18 @@ import GroupItemProduct from './GroupItemProduct'
 
 const ProductsSection = () => {
     const [groups, setGroups] = useState([])
+
     const getGroups = async () => {
-        await axios.get('https://dwm-backend.herokuapp.com/groups')
+        await axios.get('https://api.dworldmachine.com.ar/groups')
             .then(resp => {
                 setGroups(resp.data.groupsDB)
             })
     }
+
     useEffect(() => {
         getGroups()
     }, [])
+    
     return (
         <div className="products-section">
             <h2>Productos</h2>
