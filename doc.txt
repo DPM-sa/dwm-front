@@ -1,0 +1,8 @@
+Front app dwm Next:
+Estilos css se encuentran en /styles/styles.css
+store de app se encuentra en /context/reducer.js
+se utiliza Libreria React-Bootstrap para algunos componentes como los Carouseles
+Libreria swiper para carouseles de cards
+Iconos FontAwesome
+se utliza Libreria axios para hacer peticiones al backend
+
