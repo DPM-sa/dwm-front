@@ -10,7 +10,7 @@ const Footer = () => {
                     <img src="/assets/Logo2x.png" />
                 </div>
                 <h3 className="footer-content-desc">
-                    Somos importadores estratégicos de equipos y herramientas especializadas para la operación logistica
+                    Somos importadores estratégicos de equipos y herramientas especializadas para la operación logistica.
                 </h3>
                 <div className="footer-content-location">
                     <h3>
