@@ -57,7 +57,7 @@ const Footer = () => {
                 <form>
                     <input type="text" placeholder="Ingresar e-mail" />
                     <button type="submit">
-                        Suscribite
+                        Suscribite!
                     </button>
                 </form>
             </div>
